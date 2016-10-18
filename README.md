@@ -1,6 +1,11 @@
 # ngrx-command-reducer
 
-A command-style pattern reducer for [ngrx/store](https://github.com/ngrx/store) with type checking for actions and their payloads.
+A command-style redux reducer for Angular 2 and [ngrx/store](https://github.com/ngrx/store) with type checking for actions and their payloads.
+
+* Reducers essentially become a map of actions to pure function commands. 
+* The highly-testable commands encapsulate your business logic and return state.
+* Actions are class based (no more magic strings!) have typed payloads.
+* State and action payloads are type checked against the commands you map them to.
 
 ## Installation
 
@@ -20,7 +25,7 @@ import { CommandReducer } from 'ngrx-command-reducer';
 import { CurrentUser } from './current-user';
 // more imports etc...
 
-const DEFAULT_STATE = {
+const DEFAULT_STATE: CurrentUser = {
   isLoading: false,
   user: null,
   error: null
@@ -61,7 +66,7 @@ export class LoginAction implements Action {
 import { LoginParams } from './login-params';
 import { CurrentUser } from './current-user';
 
-export const loginCommand = (state: CurrentUser, payload: LoginParams): CurrentUser => {
+export function loginCommand(state: CurrentUser, payload: LoginParams): CurrentUser {
   state = Object.assign({}, state);
   state.isLoading = true;
   state.error = null;
@@ -92,5 +97,6 @@ If using [@ngrx/effects](https://github.com/ngrx/effects), you can respond to a 
 const username = 'missfoo';
 const password = 'ilikebar';
 
+// The LoginAction payload is defined by the LoginParams interface
 this.store$.dispatch(new LoginAction({username, password}));
 ```
