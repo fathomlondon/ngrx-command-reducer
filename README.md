@@ -16,7 +16,7 @@ The command reducer will ensure that an action can only be mapped to a command e
 
 ```js
 import { ActionReducer } from '@ngrx/store';
-import { CommandReducer } from '@fathom-london/ngrx-command-reducer';
+import { CommandReducer } from 'ngrx-command-reducer';
 import { CurrentUser } from './current-user';
 // more imports etc...
 
