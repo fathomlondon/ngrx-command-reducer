@@ -5,7 +5,7 @@ A command-style pattern reducer for [ngrx/store](https://github.com/ngrx/store) 
 ## Installation
 
 ```
-$ npm install @fathom-london/ngrx-command-reducer
+$ npm install ngrx-command-reducer
 ```
 
 ## Example usage

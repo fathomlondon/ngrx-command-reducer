@@ -1,6 +1,6 @@
 {
   "name": "ngrx-command-reducer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A command-style pattern reducer for ngrx/store with type checking for actions and their payloads",
   "main": "index.ts",
   "scripts": {
@@ -20,10 +20,16 @@
     "redux",
     "angular"
   ],
-  "author": "milkisevil",
+	"author": {
+		"name": "Fathom London",
+		"email": "info@fathomlondon.com"
+	},
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fathomlondon/ngrx-command-reducer/issues"
   },
-  "homepage": "https://github.com/fathomlondon/ngrx-command-reducer#readme"
+  "homepage": "https://github.com/fathomlondon/ngrx-command-reducer#readme",
+	"peerDependencies": {
+		"@ngrx/store": ">=1.3.2"
+	}
 }
