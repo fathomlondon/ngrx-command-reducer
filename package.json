@@ -1,0 +1,29 @@
+{
+  "name": "ngrx-command-reducer",
+  "version": "1.0.0",
+  "description": "A command-style pattern reducer for ngrx/store with type checking for actions and their payloads",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fathomlondon/ngrx-command-reducer.git"
+  },
+  "keywords": [
+    "ngrx",
+    "store",
+    "effects",
+    "ngrx/store",
+    "ngrx/effects",
+    "reducer",
+    "redux",
+    "angular"
+  ],
+  "author": "milkisevil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fathomlondon/ngrx-command-reducer/issues"
+  },
+  "homepage": "https://github.com/fathomlondon/ngrx-command-reducer#readme"
+}
