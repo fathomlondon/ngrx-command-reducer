@@ -1,7 +1,7 @@
 import { Action, ActionReducer } from '@ngrx/store';
 
 interface ActionMapping<A, P> {
-	new(): A;
+	new(...args: any[]): A;
 	prototype: {payload?: P};
 }
 

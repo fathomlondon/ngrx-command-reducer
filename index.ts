@@ -1,1 +1,1 @@
-export { CommandReducer } from './command-reducer';
+export * from './command-reducer';

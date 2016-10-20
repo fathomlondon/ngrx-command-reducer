@@ -2,9 +2,9 @@
 
 A command-style redux reducer for Angular 2 and [ngrx/store](https://github.com/ngrx/store) with type checking for actions and their payloads.
 
-* Reducers essentially become a map of actions to pure function commands. 
+* Reducers essentially become a clean map of actions to pure function commands. 
 * The highly-testable commands encapsulate your business logic and return state.
-* Actions are class based (no more magic strings!) have typed payloads.
+* Actions are class based (no more magic strings!) and have typed payloads.
 * State and action payloads are type checked against the commands you map them to.
 
 ## Installation
