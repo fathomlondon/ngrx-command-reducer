@@ -1,7 +1,7 @@
 {
   "name": "ngrx-command-reducer",
-  "version": "1.0.6",
-  "description": "A command-style redux reducer for Angular 2 and ngrx/store with type checking for actions and their payloads",
+  "version": "1.1.0",
+  "description": "A command-style redux reducer for Angular and ngrx/store with type checking for actions and their payloads",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
