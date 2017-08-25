@@ -113,7 +113,7 @@ export class CommandReducer<S> {
 	/**
 	 * The `ActionReducer`. To be accessed via `reducer()`.
 	 */
-	private _reducer: ActionReducer<S> = (state: S, action: Action): S => {
+	private _reducer: ActionReducer<S> = ((state: S, action: Action): S => {
 		if (typeof state === 'undefined') {
 			state = this.defaultState;
 		}
@@ -124,5 +124,5 @@ export class CommandReducer<S> {
 				: prevState,
 			state
 		);
-	}
+	}) as ActionReducer<S>;
 }
