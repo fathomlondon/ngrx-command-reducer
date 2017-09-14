@@ -14,10 +14,8 @@ export interface CommandReducerMapping {
 	command: ReducerCommand<any, any>;
 }
 
-declare module '@ngrx/store' {
-	interface ActionReducer<S> {
-		useMockCommand?<P>(command: ReducerCommand<S, P>, mockCommand: ReducerCommand<S, P>): CommandReducerMapping[];
-	}
+interface CRActionReducer<S, A extends Action = Action> extends ActionReducer<S, A> {
+  useMockCommand?<P>(command: ReducerCommand<S, P>, mockCommand: ReducerCommand<S, P>): CommandReducerMapping[];
 }
 
 /**
@@ -43,10 +41,10 @@ declare module '@ngrx/store' {
  *         .add(AddZarAction, addZarReducerCommand)
  *         .reducer();
  */
-export class CommandReducer<S> {
+export class CommandReducer<S, A extends Action = Action> {
 	private map: CommandReducerMapping[] = [];
 
-	constructor(private defaultState: S) {
+	constructor(private defaultState: S, private actionAdapter: (action: A) => any = (a) => a) {
 		// Make `useMockCommand` easily accessible when only exporting the `ActionReducer` from a module
 		this._reducer.useMockCommand = this.useMockCommand;
 	}
@@ -113,16 +111,16 @@ export class CommandReducer<S> {
 	/**
 	 * The `ActionReducer`. To be accessed via `reducer()`.
 	 */
-	private _reducer: ActionReducer<S> = ((state: S, action: Action): S => {
+	private _reducer: CRActionReducer<S, A> = ((state: S, action: A): S => {
 		if (typeof state === 'undefined') {
 			state = this.defaultState;
 		}
 
 		return this.map.reduce(
 			(prevState: S, mapping: CommandReducerMapping) => action instanceof mapping.action
-				? mapping.command(prevState, action.payload)
+				? mapping.command(prevState, this.actionAdapter(action))
 				: prevState,
 			state
 		);
-	}) as ActionReducer<S>;
+	}) as CRActionReducer<S, A>;
 }
