@@ -1,5 +1,7 @@
 # This project is dead, much like the use of Angular.
 
+We've moved on from using Angular and ngrx as an organisation, as such this project will be no more.
+
 # ngrx-command-reducer
 
 A command-style redux reducer for Angular and [ngrx/store](https://github.com/ngrx/store) with type checking for actions
